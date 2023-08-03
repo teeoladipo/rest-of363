@@ -29,7 +29,7 @@ print("Column Names:", column_names)
 #+END_SRC
 
 Here is a figure that shows the results from the last assignment: 
-[[//figure.png]] #gotta insert something here
+
 
 As seen in Figure 1, the results indicate that something is definitely happening.
  
@@ -38,4 +38,21 @@ As seen in Figure 1, the results indicate that something is definitely happening
 Therefore, I hope I've proved my competence with compiling reports in Emacs 
 
 * References
-#+BIBLIOGRAPHY: example.bib
+
+#+LaTeX_HEADER: \usepackage{biblatex}
+@article{doi:10.1080/08993408.2019.1696169,
+author = {Serdar Çiftci and Ahmet Bildiren},
+title = {The effect of coding courses on the cognitive abilities and problem-solving skills of preschool children},
+journal = {Computer Science Education},
+volume = {30},
+number = {1},
+pages = {3-21},
+year  = {2020},
+publisher = {Routledge},
+doi = {10.1080/08993408.2019.1696169},
+
+URL = {https://doi.org/10.1080/08993408.2019.1696169}
+eprint = {https://doi.org/10.1080/08993408.2019.1696169}
+}
+
+#+end_src
