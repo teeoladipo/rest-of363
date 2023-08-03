@@ -1,0 +1,41 @@
+#+TITLE: Example paper
+#+AUTHOR: Tee Oladipo 
+
+* Introduction 
+
+This is an example of a report being written in org 
+
+* Methods
+
+My computer, emacs and the terminal within Ubuntu
+
+* Results
+
+This is a placeholder for where the results would go. 
+
+#+begin_src R
+doomsday <- function(a, b)
+ {  doom <- (a/b)  
+return (doom)}
+result <- eval(doomsday(4, 2))
+print(result)
+#+end_src 
+
+#+begin_src Python
+import pandas as pd
+dpd = pd.read_csv("./SCS/data.csv")
+column_names = dpd.columns.values
+print("Column Names:", column_names)
+#+END_SRC
+
+Here is a figure that shows the results from the last assignment: 
+[[//figure.png]] #gotta insert something here
+
+As seen in Figure 1, the results indicate that something is definitely happening.
+ 
+* Conclusions
+
+Therefore, I hope I've proved my competence with compiling reports in Emacs 
+
+* References
+#+BIBLIOGRAPHY: example.bib

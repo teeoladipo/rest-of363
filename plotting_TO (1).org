@@ -1,0 +1,89 @@
+#+BEGIN_SRC python :results file :file plot.png
+import numpy as np
+import random 
+import matplotlib.pyplot as plt 
+
+x = np.arrange (0, 10, 0.1)
+
+def get_y(x): 
+    return x**2
+
+yrandoms = [random.random() for _ in range(len(x))]
+
+y = get_y(x)
+
+plt.plot(x, y, label='y')
+plt.scatter(x, yrandoms, label='yrandoms')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+#+END_SRC 
+
+#+RESULTS: 
+[[file:plot.png]]
+
+#+BEGIN_SRC R :results file :file interaction_plot.png 
+import os 
+os.chdir(".")
+
+xs <- 1:10
+
+ysquare <- xs^2
+ydouble <- 2*ysquare
+yrandom <- rnorm(10)
+mapply(function (x,y,z,q) {c(x,y,z,q), xs, ysquare, ydouble, yrandom)
+
+library(ggplot2)
+
+p <- ggplot(data, aes(x = x, y = y1, col = "red")) + 
+  geom_point() + 
+  geom_line() + 
+  geom_line(aes(x = x, y = y2, col = "blue")) + 
+  geom_line(aes(x = x, y = y3, col = "orange")) + 
+  theme(legend.position = c(0.2, 0.65)) + 
+  labs(title = "Interaction Plot", x = "x", y = "y") +
+  scale_color_manual(values = c("red", "blue", "green"), labels = c("Line 1", "Line 2", "Line 3"))
+
+ggsave("interaction_plot.png", plot = p, width = 8, height = 5, units = "cm" 
+#+END_SRC
+
+#+RESULTS: 
+[[file:interaction_plot.png]]
+
+#+CAPTION: Line and Scatter PLot
+[[file:plot.png]]
+
+#+CAPTION: Interaction Plot
+[[file:interaction_plot.png]]
+"#+BEGIN_SRC python :results file :file plot.png
+import numpy as np
+import random 
+import matplotlib.pyplot as plt 
+
+xs = np.arange(1,11)
+
+def get_y(x): 
+    return 2 * (x**2)
+
+y = get_y(x)
+
+yrandom = np.random.normal(size=len(xs))
+
+plt.plot(xs, ys, label='Line')
+plt.scatter(xs, yrandom, color='red', label='Scatter')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Line and Scatter Plot')
+plt.legend()
+plt.show()plt.plot(x, y, label='y')
+plt.scatter(x, yrandoms, label='yrandoms')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.savefig('plot.png')
+plt.show()
+#+END_SRC
+
+#+RESULTS: plot.png
