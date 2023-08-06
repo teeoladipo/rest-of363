@@ -15,7 +15,7 @@
                          [0.3 0.6 -1.0]
                          [2.0 3.0 1.0]
                          [4.9 3.2 1.0]
-                         [5.0 0.2 1.0]  ;; I don't think this function is necessary since you are going to be testing the two sets seperately. -tee
+                         [5.0 0.2 1.0]
                          [3.0 1.2 1.0]
                          [3.1 0.2 1.0]
                          [1.0 1.1 -1.0]
@@ -103,16 +103,12 @@
 
 (define updated-weights (one-loop-through-data trainingset initial-weights))
 
-(display "Final updated weights: ")
-(display updated-weights)
 
 ;; I'm struggling with the matrix functions for this assignment. To make it simpler for myself, I
 ;; will be putting everything as a list.
-(define (matlis set)
-  (matrix->list* set))
-(define mydatal (matlis my-data))
-(define trainingsetl (matlis trainingset))
-(define testingsetl (matlis testingset))
+(define trainingsetl (matrix->list* trainingset))
+(define testingsetl (matrix->list* testingset))
+
 
 ;; creating a manual list of the updated weights from trainingset
 (define new-weights
@@ -128,9 +124,21 @@
 (define (activation scl #:threshold [th 0])
   (if (>= scl th) 1 -1))
 
-(define (perceptron data wts #:bias[bias 1])
- (for ([item data]
-       [ws wts]
-       [acc '()])
-   (display (cons (activation (foldr + 0 (map (lambda (x) (* x ws)) item)))  acc))))
+(define (perceptron data wts #:bias [bias 1])
+  (for/fold ([outputs '()])
+            ([item data])
+            (cons (activation (+ (foldr + 0 (map (lambda (x) (* x (car wts))) item)) bias)) outputs)))
+
+; This displays the estimated classes. When tested, it gives the correct classes. 
+(define training-set-tested (perceptron trainingsetl new-weights))
+
+(display "trainingset tested, the classes returned are ")
+(display training-set-tested)
+
+;; (2) We want to train using the same weights on the testingset.
+(define testing-set-tested (perceptron trainingsetl new-weights))
+
+(display "
+These are the results for the testingset ")
+(display testing-set-tested)
        
