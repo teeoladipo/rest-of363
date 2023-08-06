@@ -136,7 +136,7 @@
 (display training-set-tested)
 
 ;; (2) We want to train using the same weights on the testingset.
-(define testing-set-tested (perceptron trainingsetl new-weights))
+(define testing-set-tested (perceptron testingsetl new-weights))
 
 (display "
 These are the results for the testingset ")
