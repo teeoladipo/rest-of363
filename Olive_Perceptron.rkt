@@ -97,7 +97,7 @@
                 
 ;; (1) we want to test the training-set by setting an initial-weight. We can update this weight
 ;; by running it through the one-loop-through-data function. Using these new set of weights,
-;; we will input it into the perceptron function that we'll 
+;; we will input it into the perceptron function
 
 (define initial-weights (matrix [[0.1] [0.1]]))
 
