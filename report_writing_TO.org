@@ -32,13 +32,13 @@ Here is a figure that shows the results from the last assignment:
 
 [[py-inter-plt.png]]
 
-# I had to use one of Olive's plots because I'm unable to do anything on my computer related to emacs now. 
+# I had to use one of Olive's plots because I'm unable to do anything on my pc related to emacs now. 
 
 As seen in Figure 1, the results indicate that something is definitely happening.
  
 * Conclusions
 
-Therefore, I hope I've proved my competence with compiling reports in Emacs 
+Placeholder for where the conclusions would go
 
 * References
 
