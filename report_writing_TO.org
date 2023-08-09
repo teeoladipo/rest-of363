@@ -30,7 +30,7 @@ print("Column Names:", column_names)
 
 Here is a figure that shows the results from the last assignment: 
 
-//py-inter-plt.png//
+//py-inter-plt.png
 # I had to use one of Olive's plots because I'm unable to do anything on my computer related to emacs now. 
 
 As seen in Figure 1, the results indicate that something is definitely happening.
