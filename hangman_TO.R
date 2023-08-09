@@ -1,15 +1,8 @@
-word <- "grain"
-
 get_letter_indices <- function(letter, word) {
-  indices <- which(strsplit(word, "")[[1]] == letter)
-  if (length(indices) > 0) {
-    return(indices)
-  } else {
-    return(integer(0))
-  }
+  return(which(strsplit(word, "")[[1]] == letter))
 }
 
-play_hangman <- function(max_guesses) {
+play_hangman <- function(max_guesses, word) {
   guessed_letters <- character()
   unique_letters <- unique(strsplit(word, "")[[1]])
   
@@ -18,23 +11,29 @@ play_hangman <- function(max_guesses) {
     indices <- get_letter_indices(guess, word)
     
     if (length(indices) > 0) {
-      print(paste("The letter '", guess, "' IS at: ",paste(indices, collapse = " ")))
+      cat("The letter '", guess, "' is at: ", paste(indices, collapse = " "), "\n", sep = "")
     } else {
-      print(paste("The letter isn't in the word."))
-      max_guesses <- max_guesses - 1
+      cat("The letter isn't in the word.\n")
     }
     
     guessed_letters <- c(guessed_letters, guess)
     
-    if (length(unique(guessed_letters)) == length(unique_letters)) {
-      print("You won!")
+    remaining_unique_letters <- setdiff(unique_letters, guessed_letters)
+    
+    if (length(remaining_unique_letters) == 0) {
+      cat("You won!\n")
       break
-    } else if (max_guesses == 0) {
-      print("You lost.")
+    }
+    
+    max_guesses <- max_guesses - 1  
+    
+    if (max_guesses == 0) {
+      cat("You lost.\n")
       break
     }
   }
 }
 
 # to play it
-play_hangman(6)
+play_hangman(6, "grain")
+
